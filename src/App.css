@@ -28,7 +28,9 @@ body{
   color: #dc4b4c !important;
 }
 
-
+.ReactCrop {
+  height: 100vh !important;
+}
 
 
 

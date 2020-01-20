@@ -161,7 +161,7 @@ const ProfilePicSelecter = (props) => {
                             <DialogContentText>
                                 Crop your profile image here. Make it look good!
                             </DialogContentText>
-                            {image && <ReactCrop style={{height: '100vh'}} src={image} onChange={onCropChange} onImageLoaded={onImageLoaded} crop={crop} onComplete={onCropComplete}/>}
+                            {image && <ReactCrop src={image} onChange={onCropChange} onImageLoaded={onImageLoaded} crop={crop} onComplete={onCropComplete}/>}
                         </div>)
                     }
                     </DialogContent>

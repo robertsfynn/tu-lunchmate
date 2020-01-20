@@ -96,7 +96,6 @@ const Admin = (props) => {
         let newInterests = [];
         const querySnapshot = await firebase.interests();
         querySnapshot.forEach((doc) => {
-            console.log("interest: ", doc.data());
             const interest = doc.data();
             interest.id = doc.id;
             newInterests.push(interest);
@@ -105,7 +104,6 @@ const Admin = (props) => {
     }
 
     function onDeleteInterest(id) {
-        console.log("Deleting item with id: ", id);
         //TODO: delete ALL instances where interest is present???
         firebase.deleteInterest(id).then(function () {
             props.enqueueSnackbar('Interest deleted!', {
@@ -192,7 +190,6 @@ const Admin = (props) => {
         let reportedLunches = [];
         const snapshot = await firebase.getReportedLunches();
         snapshot.forEach((doc) => {
-            console.log("lunch: ", doc.data());
             const lunch = doc.data();
             lunch.id = doc.id;
             reportedLunches.push(lunch);
@@ -235,14 +232,13 @@ const Admin = (props) => {
     function deleteUser() {
         setLoading(true);
         firebase.deleteUserByEmail(email).then(function () {
-            console.log("user successfully deleted");
+            ("user successfully deleted");
             setDialogOpen(false);
             setLoading(false);
             props.enqueueSnackbar('User deleted!', {
                 variant: 'success',
             });
         }).catch(function (e) {
-            console.log("deletion failed",e);
             setDialogOpen(false);
             setLoading(false);
             props.enqueueSnackbar('Something went wrong :(', {
